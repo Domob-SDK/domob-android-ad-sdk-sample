@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="#DDDDDDDD">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:layout_alignParentTop="true">
+		<Button android:id="@+id/banner" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="Banner广告展示" />
+		<Button android:id="@+id/flexibleBanner" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="Flexible Banner广告展示" />
+		<Button android:id="@+id/rotatableFlexibleBannerAd" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="Rotatable Flexible Banner广告展示" />
+		<Button android:id="@+id/interstitial" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="插屏广告展示" />
+		<Button android:id="@+id/feeds" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="feeds广告展现" />
+	</LinearLayout>
+</RelativeLayout>
