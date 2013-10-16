@@ -16,6 +16,7 @@ public class DomobSampleActivity extends Activity {
 	public static final String FlexibleInlinePPID = "16TLwebvAchksNUH_fumgl0k";
 	public static final String InterstitialPPID = "16TLwebvAchksY6iOa7F4DXs";
 	public static final String SplashPPID = "16TLwebvAchksY6iOGe3xcik";
+	public static final String FeedsPPID = "16TLwebvAchksNUGSZjJXz_k";
 
 	/** Called when the activity is first created. */
 	@Override
@@ -78,7 +79,7 @@ public class DomobSampleActivity extends Activity {
 
 		switch (item.getItemId()) {
 		case Menu.FIRST:
-			new AlertDialog.Builder(this).setTitle("Sample Version").setMessage("3.3.5")
+			new AlertDialog.Builder(this).setTitle("Sample Version").setMessage("4.0")
 					.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
 						}

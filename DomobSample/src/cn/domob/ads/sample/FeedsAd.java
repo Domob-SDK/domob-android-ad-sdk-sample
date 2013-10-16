@@ -28,10 +28,10 @@ public class FeedsAd extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.feeds);
 
-		mFeedsAdView = new DomobFeedsAdView(this, "56OJy3zouMZMTx6T/Y", "16TLw4VvAcxWc8shwVKx30fz");
+		mFeedsAdView = new DomobFeedsAdView(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.FeedsPPID);
+		mFeedsAdView.loadFeedsAd();
 		LinearLayout parentLinearLayout = (LinearLayout) findViewById(R.id.adcontainer);
 		parentLinearLayout.addView(mFeedsAdView, 0);
-		mFeedsAdView.loadFeedsAd();
 		mFeedsAdView.setFeedsAdListener(new DomobFeedsAdListener() {
 
 			@Override
@@ -77,6 +77,24 @@ public class FeedsAd extends Activity {
 		});
 
 		final MyListView listView = (MyListView) findViewById(R.id.listView);
+		listView.setonRefreshListener(new OnRefreshListener() {
+			public void onRefresh() {
+				if (mFeedsAdView.isFeedsAdReady()) {
+					mFeedsAdView.showFeedsAd(FeedsAd.this);
+				} else {
+					mFeedsAdView.loadFeedsAd();
+				}
+				mHandler.postDelayed(new Runnable() {
+
+					@Override
+					public void run() {
+						listView.onRefreshComplete();
+
+					}
+				}, 2000);
+			}
+		});
+
 		mDataLinkedList = new LinkedList<String>();
 		for (int i = 0; i < 10; i++) {
 			mDataLinkedList.add(String.valueOf(i));
@@ -102,24 +120,6 @@ public class FeedsAd extends Activity {
 			}
 		};
 		listView.setAdapter(mBaseAdapter);
-
-		listView.setonRefreshListener(new OnRefreshListener() {
-			public void onRefresh() {
-				if (mFeedsAdView.isFeedsAdReady()) {
-					mFeedsAdView.showFeedsAd(FeedsAd.this);
-				} else {
-					mFeedsAdView.loadFeedsAd();
-				}
-				mHandler.postDelayed(new Runnable() {
-
-					@Override
-					public void run() {
-						listView.onRefreshComplete();
-
-					}
-				}, 2000);
-			}
-		});
 	}
 
 	protected void onDestroy() {
