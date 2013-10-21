@@ -30,7 +30,7 @@ public class FeedsAd extends Activity {
 
 		mFeedsAdView = new DomobFeedsAdView(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.FeedsPPID);
 		mFeedsAdView.loadFeedsAd();
-		LinearLayout parentLinearLayout = (LinearLayout) findViewById(R.id.adcontainer);
+		final LinearLayout parentLinearLayout = (LinearLayout) findViewById(R.id.adcontainer);
 		parentLinearLayout.addView(mFeedsAdView, 0);
 		mFeedsAdView.setFeedsAdListener(new DomobFeedsAdListener() {
 
@@ -67,6 +67,7 @@ public class FeedsAd extends Activity {
 			@Override
 			public void onFeedsAdDismiss() {
 				Log.i("DomobSDKDemo", "onFeedsAdDismiss");
+				parentLinearLayout.invalidate();
 				mFeedsAdView.loadFeedsAd();
 			}
 
