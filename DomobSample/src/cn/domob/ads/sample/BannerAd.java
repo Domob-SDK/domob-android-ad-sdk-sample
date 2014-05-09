@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 
 public class BannerAd extends Activity {
 	RelativeLayout mAdContainer;
-	DomobAdView mAdview320x50;
+	DomobAdView mAdview;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +21,16 @@ public class BannerAd extends Activity {
 
 		mAdContainer = (RelativeLayout) findViewById(R.id.adcontainer);
 		// Create ad view
-		mAdview320x50 = new DomobAdView(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.InlinePPID, DomobAdView.INLINE_SIZE_320X50);
-		mAdview320x50.setKeyword("game");
-		mAdview320x50.setUserGender("male");
-		mAdview320x50.setUserBirthdayStr("2000-08-08");
-		mAdview320x50.setUserPostcode("123456");
-
-		mAdview320x50.setAdEventListener(new DomobAdEventListener() {
+		mAdview = new DomobAdView(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.InlinePPID);
+		
+		mAdview.setKeyword("game");
+		mAdview.setUserGender("male");
+		mAdview.setUserBirthdayStr("2000-08-08");
+		mAdview.setUserPostcode("123456");
+//		you can set other size, default value is flexible
+//		supported sizes:DomobAdView.INLINE_SIZE_320X50、DomobAdView.INLINE_SIZE_300X250、DomobAdView.INLINE_SIZE_600X94、DomobAdView.INLINE_SIZE_600X500、DomobAdView.INLINE_SIZE_728X90、DomobAdView.INLINE_SIZE_FLEXIBLE
+//		mAdview.setAdSize(DomobAdView.INLINE_SIZE_320X50);
+		mAdview.setAdEventListener(new DomobAdEventListener() {
 						
 			@Override
 			public void onDomobAdReturned(DomobAdView adView) {
@@ -66,7 +69,7 @@ public class BannerAd extends Activity {
 		});
 		RelativeLayout.LayoutParams layout=new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 		layout.addRule(RelativeLayout.CENTER_HORIZONTAL);
-		mAdview320x50.setLayoutParams(layout);
-		mAdContainer.addView(mAdview320x50);
+		mAdview.setLayoutParams(layout);
+		mAdContainer.addView(mAdview);
 	}
 }

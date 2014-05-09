@@ -5,17 +5,17 @@ import cn.domob.android.ads.DomobAdManager.ErrorCode;
 import cn.domob.android.ads.DomobAdView;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RelativeLayout;
-
 /**
- * 当您选择 INLINE_SIZE_FLEXIBLE，并且应用界面不会跟随屏幕旋转，请参考本类的实现方式。
- * When you select INLINE_SIZE_FLEXIBLE, and application interface will not follow the screen rotation, please refer to the class implementation.
+ * 当您选择的广告尺寸是INLINE_SIZE_FLEXIBLE(这是默认广告尺寸)，应用界面会跟随屏幕旋转，并且旋转后不重绘页面，请参考本类的实现方式。
+ * When you select INLINE_SIZE_FLEXIBLE(This is the default ad size), application interface will follow the screen rotation and do not call onCreate, please refer to the class implementation.
  */
-public class FlexibleBannerAd extends Activity {
+public class RotatableBannerAd extends Activity {
 	RelativeLayout mAdContainer;
-	DomobAdView mAdviewFlexibleAdView;
+	DomobAdView mAdview;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +24,13 @@ public class FlexibleBannerAd extends Activity {
 
 		mAdContainer = (RelativeLayout) findViewById(R.id.adcontainer);
 		// Create ad view
-		mAdviewFlexibleAdView = new DomobAdView(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.FlexibleInlinePPID, DomobAdView.INLINE_SIZE_FLEXIBLE);
-		mAdviewFlexibleAdView.setKeyword("game");
-		mAdviewFlexibleAdView.setUserGender("male");
-		mAdviewFlexibleAdView.setUserBirthdayStr("2000-08-08");
-		mAdviewFlexibleAdView.setUserPostcode("123456");
+		mAdview = new DomobAdView(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.InlinePPID);
+		mAdview.setKeyword("game");
+		mAdview.setUserGender("male");
+		mAdview.setUserBirthdayStr("2000-08-08");
+		mAdview.setUserPostcode("123456");
 
-		mAdviewFlexibleAdView.setAdEventListener(new DomobAdEventListener() {
+		mAdview.setAdEventListener(new DomobAdEventListener() {
 						
 			@Override
 			public void onDomobAdReturned(DomobAdView adView) {
@@ -64,10 +64,16 @@ public class FlexibleBannerAd extends Activity {
 
 			@Override
 			public Context onDomobAdRequiresCurrentContext() {
-				return FlexibleBannerAd.this;
+				return RotatableBannerAd.this;
 			}
 		});
 		
-		mAdContainer.addView(mAdviewFlexibleAdView);
+		mAdContainer.addView(mAdview);
+	}
+	
+	@Override
+	public void onConfigurationChanged(Configuration configuration) {
+	    super.onConfigurationChanged(configuration);
+	    mAdview.orientationChanged();
 	}
 }

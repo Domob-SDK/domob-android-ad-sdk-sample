@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="cn.domob.ads.sample" android:versionCode="1"
-	android:versionName="1.0">
-	<uses-sdk android:minSdkVersion="4" />
-
+	package="cn.domob.ads.sample" android:versionCode="2"
+	android:versionName="2.0">
+	<uses-sdk android:minSdkVersion="7" />
+	<!-- 网络访问权限 -->
 	<uses-permission android:name="android.permission.INTERNET" />
+	<!-- 获取网络信息状态，如当前的网络连接是否有效 -->
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<!-- 读取手机状态 -->
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<!-- 允许程序写入外部存储，如SD卡上写文件 -->
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<!-- 获取错略位置 -->
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<!-- 获取WiFi状态 -->
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	
+	<!-- 以下权限为可选权限，主要是品牌广告会用到，如果您没有添加，需要这些效果的品牌广告将不会投放到您的应用上 -->
+	<!-- 震动权限 -->
 	<uses-permission android:name="android.permission.VIBRATE" />
 
 	<application android:icon="@drawable/ic_launcher"
@@ -19,8 +27,7 @@
 		<activity android:name="cn.domob.android.ads.DomobActivity"
 			android:theme="@android:style/Theme.Translucent"></activity>
 		<activity android:name="BannerAd"></activity>
-		<activity android:name="FlexibleBannerAd" android:screenOrientation="portrait"></activity>
-		<activity android:name="RotatableFlexibleBannerAd"  android:configChanges="orientation"></activity>
+		<activity android:name="RotatableBannerAd"  android:configChanges="orientation"></activity>
 		<activity android:name="InterstitialAd"></activity>
 		<activity android:name="FeedsAd"></activity>
 		<activity android:name="SplashScreen">

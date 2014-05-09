@@ -13,7 +13,6 @@ import android.widget.Button;
 public class DomobSampleActivity extends Activity {
 	public static final String PUBLISHER_ID = "56OJyM1ouMGoaSnvCK";
 	public static final String InlinePPID = "16TLwebvAchksY6iO_8oSb-i";
-	public static final String FlexibleInlinePPID = "16TLwebvAchksNUH_fumgl0k";
 	public static final String InterstitialPPID = "16TLwebvAchksY6iOa7F4DXs";
 	public static final String SplashPPID = "16TLwebvAchksY6iOGe3xcik";
 	public static final String FeedsPPID = "16TLwebvAchksNUGSZjJXz_k";
@@ -25,8 +24,7 @@ public class DomobSampleActivity extends Activity {
 		setContentView(R.layout.main);
 
 		Button bannerBtn = (Button) findViewById(R.id.banner);
-		Button flexibleBannerBtn = (Button) findViewById(R.id.flexibleBanner);
-		Button rotatableFlexBannerBtn = (Button) findViewById(R.id.rotatableFlexibleBannerAd);
+		Button rotatableFlexBannerBtn = (Button) findViewById(R.id.rotatableBannerAd);
 		Button interstitialBtn = (Button) findViewById(R.id.interstitial);
 		Button feedsBtn = (Button) findViewById(R.id.feeds);
 		
@@ -37,17 +35,10 @@ public class DomobSampleActivity extends Activity {
 			}
 		});
 		
-		flexibleBannerBtn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				startActivity(new Intent(DomobSampleActivity.this, FlexibleBannerAd.class));
-			}
-		});
-		
 		rotatableFlexBannerBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				startActivity(new Intent(DomobSampleActivity.this, RotatableFlexibleBannerAd.class));
+				startActivity(new Intent(DomobSampleActivity.this, RotatableBannerAd.class));
 			}
 		});
 

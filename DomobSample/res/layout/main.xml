@@ -7,10 +7,8 @@
 		android:layout_alignParentTop="true">
 		<Button android:id="@+id/banner" android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:text="Banner广告展示" />
-		<Button android:id="@+id/flexibleBanner" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:text="Flexible Banner广告展示" />
-		<Button android:id="@+id/rotatableFlexibleBannerAd" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:text="Rotatable Flexible Banner广告展示" />
+		<Button android:id="@+id/rotatableBannerAd" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="Rotatable Banner广告展示" />
 		<Button android:id="@+id/interstitial" android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:text="插屏广告展示" />
 		<Button android:id="@+id/feeds" android:layout_width="fill_parent"
