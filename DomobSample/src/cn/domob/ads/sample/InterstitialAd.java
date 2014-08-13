@@ -19,7 +19,7 @@ public class InterstitialAd extends Activity {
 		setContentView(R.layout.interstital);
 
 		mInterstitialAd = new DomobInterstitialAd(this, DomobSampleActivity.PUBLISHER_ID,
-				DomobSampleActivity.InterstitialPPID, DomobInterstitialAd.INTERSITIAL_SIZE_300X250);
+				DomobSampleActivity.InterstitialPPID);
 
 		mInterstitialBtn = (Button) findViewById(R.id.interstitial);
 		
