@@ -18,7 +18,6 @@ public class BannerAd extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.banner);
-
 		mAdContainer = (RelativeLayout) findViewById(R.id.adcontainer);
 		// Create ad view
 		mAdview = new DomobAdView(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.InlinePPID);
