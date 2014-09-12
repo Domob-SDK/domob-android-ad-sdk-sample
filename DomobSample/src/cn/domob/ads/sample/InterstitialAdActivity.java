@@ -1,6 +1,6 @@
 package cn.domob.ads.sample;
 import com.aa.gg.android.ads.AdManager.ErrorCode;
-import com.aa.gg.android.ads.DmInterstitialAd;
+import com.aa.gg.android.ads.InterstitialAd;
 import com.aa.gg.android.ads.InterstitialAdListener;
 
 import android.app.Activity;
@@ -9,8 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class InterstitialAd extends Activity {
-	DmInterstitialAd mInterstitialAd;
+public class InterstitialAdActivity extends Activity {
+	
+	InterstitialAd mInterstitialAd;
 	Button mInterstitialBtn;
 
 	@Override
@@ -18,7 +19,7 @@ public class InterstitialAd extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.interstital);
 
-		mInterstitialAd = new DmInterstitialAd(this, DomobSampleActivity.PUBLISHER_ID,
+		mInterstitialAd = new InterstitialAd(this, DomobSampleActivity.PUBLISHER_ID,
 				DomobSampleActivity.InterstitialPPID);
 
 		mInterstitialBtn = (Button) findViewById(R.id.interstitial);
@@ -63,7 +64,7 @@ public class InterstitialAd extends Activity {
 			}
 
 			@Override
-			public void onInterstitialAdClicked(DmInterstitialAd arg0) {
+			public void onInterstitialAdClicked(InterstitialAd arg0) {
 				Log.i("DomobSDKDemo", "onInterstitialAdClicked");
 			}
 		});
@@ -73,7 +74,7 @@ public class InterstitialAd extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				if (mInterstitialAd.isInterstitialAdReady()){
-					mInterstitialAd.showInterstitialAd(InterstitialAd.this);
+					mInterstitialAd.showInterstitialAd(InterstitialAdActivity.this);
 				} else {
 					Log.i("DomobSDKDemo", "Interstitial Ad is not ready");
 					mInterstitialAd.loadInterstitialAd();

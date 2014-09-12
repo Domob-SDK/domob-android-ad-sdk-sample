@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.RelativeLayout;
 
-public class BannerAd extends Activity {
+public class BannerAdActivity extends Activity {
 	RelativeLayout mAdContainer;
 	AdView mAdview;
 
@@ -54,7 +54,7 @@ public class BannerAd extends Activity {
 
 			@Override
 			public Context onAdRequiresCurrentContext() {
-				return BannerAd.this;
+				return BannerAdActivity.this;
 			}
 
 			@Override

@@ -14,7 +14,7 @@ import com.aa.gg.android.ads.AdView;
  * 当您选择的广告尺寸是INLINE_SIZE_FLEXIBLE(这是默认广告尺寸)，应用界面会跟随屏幕旋转，并且旋转后不重绘页面，请参考本类的实现方式。
  * When you select INLINE_SIZE_FLEXIBLE(This is the default ad size), application interface will follow the screen rotation and do not call onCreate, please refer to the class implementation.
  */
-public class RotatableBannerAd extends Activity {
+public class RotatableBannerAdActivity extends Activity {
 	RelativeLayout mAdContainer;
 	AdView mAdview;
 
@@ -61,7 +61,7 @@ public class RotatableBannerAd extends Activity {
 
 			@Override
 			public Context onAdRequiresCurrentContext() {
-				return RotatableBannerAd.this;
+				return RotatableBannerAdActivity.this;
 			}
 
 			@Override

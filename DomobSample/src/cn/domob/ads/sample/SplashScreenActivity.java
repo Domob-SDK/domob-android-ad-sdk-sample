@@ -25,14 +25,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.aa.gg.android.ads.DmSplashAd;
-import com.aa.gg.android.ads.DmSplashAd.SplashMode;
 import com.aa.gg.android.ads.RTSplashAd;
 import com.aa.gg.android.ads.RTSplashAdListener;
+import com.aa.gg.android.ads.SplashAd;
+import com.aa.gg.android.ads.SplashAd.SplashMode;
 import com.aa.gg.android.ads.SplashAdListener;
 
-public class SplashScreen extends Activity {
-	DmSplashAd splashAd;
+public class SplashScreenActivity extends Activity {
+	SplashAd splashAd;
 	RTSplashAd rtSplashAd;
 //	 缓存开屏广告:true   实时开屏广告:false
 //	Cache splash ad:true   Real-time splash ad:false
@@ -57,7 +57,7 @@ public class SplashScreen extends Activity {
 		if (isSplash) {
 //			 缓存开屏广告
 //			Cache splash ad
-			splashAd = new DmSplashAd(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.SplashPPID,
+			splashAd = new SplashAd(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.SplashPPID,
 					SplashMode.SplashModeFullScreen);
 //		    setSplashTopMargin is available when you choose non-full-screen splash mode.
 //			splashAd.setSplashTopMargin(200);
@@ -89,9 +89,9 @@ public class SplashScreen extends Activity {
 				@Override
 				public void run() {
 					if (splashAd.isSplashAdReady()) {
-						splashAd.splash(SplashScreen.this, SplashScreen.this.findViewById(R.id.splash_holder));
+						splashAd.splash(SplashScreenActivity.this, SplashScreenActivity.this.findViewById(R.id.splash_holder));
 					} else {
-						Toast.makeText(SplashScreen.this, "Splash ad is NOT ready.", Toast.LENGTH_SHORT).show();
+						Toast.makeText(SplashScreenActivity.this, "Splash ad is NOT ready.", Toast.LENGTH_SHORT).show();
 						jump();
 					}
 				}
@@ -131,7 +131,7 @@ public class SplashScreen extends Activity {
 			new Handler().postDelayed(new Runnable() {
 				@Override
 				public void run() {
-					rtSplashAd.splash(SplashScreen.this, SplashScreen.this.findViewById(R.id.splash_holder));
+					rtSplashAd.splash(SplashScreenActivity.this, SplashScreenActivity.this.findViewById(R.id.splash_holder));
 				}
 			}, 1);
 		}
@@ -159,7 +159,7 @@ public class SplashScreen extends Activity {
 	}
 
 	private void jump() {
-		startActivity(new Intent(SplashScreen.this, DomobSampleActivity.class));
+		startActivity(new Intent(SplashScreenActivity.this, DomobSampleActivity.class));
 		finish();
 	}
 }

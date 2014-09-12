@@ -19,7 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import cn.domob.ads.sample.MyListView.OnRefreshListener;
 
-public class FeedsAd extends Activity {
+public class FeedsAdActivity extends Activity {
 	private Handler mHandler = new Handler(Looper.getMainLooper());
 	private LinkedList<String> mDataLinkedList;
 	private BaseAdapter mBaseAdapter;
@@ -82,7 +82,7 @@ public class FeedsAd extends Activity {
 		listView.setonRefreshListener(new OnRefreshListener() {
 			public void onRefresh() {
 				if (mFeedsAdView.isFeedsAdReady()) {
-					mFeedsAdView.showFeedsAd(FeedsAd.this);
+					mFeedsAdView.showFeedsAd(FeedsAdActivity.this);
 				} else {
 					mFeedsAdView.loadFeedsAd();
 				}
