@@ -24,15 +24,16 @@ import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
-import cn.domob.android.ads.DomobRTSplashAd;
-import cn.domob.android.ads.DomobRTSplashAdListener;
-import cn.domob.android.ads.DomobSplashAd;
-import cn.domob.android.ads.DomobSplashAd.DomobSplashMode;
-import cn.domob.android.ads.DomobSplashAdListener;
+
+import com.aa.gg.android.ads.DmSplashAd;
+import com.aa.gg.android.ads.DmSplashAd.SplashMode;
+import com.aa.gg.android.ads.RTSplashAd;
+import com.aa.gg.android.ads.RTSplashAdListener;
+import com.aa.gg.android.ads.SplashAdListener;
 
 public class SplashScreen extends Activity {
-	DomobSplashAd splashAd;
-	DomobRTSplashAd rtSplashAd;
+	DmSplashAd splashAd;
+	RTSplashAd rtSplashAd;
 //	 缓存开屏广告:true   实时开屏广告:false
 //	Cache splash ad:true   Real-time splash ad:false
 	private boolean isSplash = false;
@@ -56,11 +57,11 @@ public class SplashScreen extends Activity {
 		if (isSplash) {
 //			 缓存开屏广告
 //			Cache splash ad
-			splashAd = new DomobSplashAd(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.SplashPPID,
-					DomobSplashMode.DomobSplashModeFullScreen);
+			splashAd = new DmSplashAd(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.SplashPPID,
+					SplashMode.SplashModeFullScreen);
 //		    setSplashTopMargin is available when you choose non-full-screen splash mode.
 //			splashAd.setSplashTopMargin(200);
-			splashAd.setSplashAdListener(new DomobSplashAdListener() {
+			splashAd.setSplashAdListener(new SplashAdListener() {
 				@Override
 				public void onSplashPresent() {
 					Log.i("DomobSDKDemo", "onSplashStart");
@@ -98,11 +99,11 @@ public class SplashScreen extends Activity {
 		} else {
 //			 实时开屏广告
 //			Real-time splash ad
-			rtSplashAd = new DomobRTSplashAd(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.SplashPPID,
-					DomobSplashMode.DomobSplashModeFullScreen);
+			rtSplashAd = new RTSplashAd(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.SplashPPID,
+					SplashMode.SplashModeFullScreen);
 //		    setRTSplashTopMargin is available when you choose non-full-screen splash mode.
 //			rtSplashAd.setRTSplashTopMargin(200);
-			rtSplashAd.setRTSplashAdListener(new DomobRTSplashAdListener() {
+			rtSplashAd.setRTSplashAdListener(new RTSplashAdListener() {
 				@Override
 				public void onRTSplashDismiss() {
 					Log.i("DomobSDKDemo", "onRTSplashClosed");

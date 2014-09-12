@@ -2,6 +2,10 @@ package cn.domob.ads.sample;
 
 import java.util.LinkedList;
 
+import com.aa.gg.android.ads.AdManager.ErrorCode;
+import com.aa.gg.android.ads.FeedsAdListener;
+import com.aa.gg.android.ads.FeedsAdView;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,25 +18,22 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import cn.domob.ads.sample.MyListView.OnRefreshListener;
-import cn.domob.android.ads.DomobAdManager.ErrorCode;
-import cn.domob.android.ads.DomobFeedsAdListener;
-import cn.domob.android.ads.DomobFeedsAdView;
 
 public class FeedsAd extends Activity {
 	private Handler mHandler = new Handler(Looper.getMainLooper());
 	private LinkedList<String> mDataLinkedList;
 	private BaseAdapter mBaseAdapter;
-	private DomobFeedsAdView mFeedsAdView;
+	private FeedsAdView mFeedsAdView;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.feeds);
 
-		mFeedsAdView = new DomobFeedsAdView(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.FeedsPPID);
+		mFeedsAdView = new FeedsAdView(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.FeedsPPID);
 		mFeedsAdView.loadFeedsAd();
 		final LinearLayout parentLinearLayout = (LinearLayout) findViewById(R.id.adcontainer);
 		parentLinearLayout.addView(mFeedsAdView, 0);
-		mFeedsAdView.setFeedsAdListener(new DomobFeedsAdListener() {
+		mFeedsAdView.setFeedsAdListener(new FeedsAdListener() {
 
 			@Override
 			public void onLandingPageOpen() {
@@ -72,7 +73,7 @@ public class FeedsAd extends Activity {
 			}
 
 			@Override
-			public void onFeedsAdClicked(DomobFeedsAdView feedsAdView) {
+			public void onFeedsAdClicked(FeedsAdView feedsAdView) {
 				Log.i("DomobSDKDemo", "onFeedsAdClicked");
 			}
 		});
