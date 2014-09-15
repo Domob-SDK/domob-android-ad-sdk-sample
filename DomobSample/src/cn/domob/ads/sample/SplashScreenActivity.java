@@ -24,14 +24,14 @@ import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
-
-import com.aa.gg.android.ads.RTSplashAd;
-import com.aa.gg.android.ads.RTSplashAdListener;
-import com.aa.gg.android.ads.SplashAd;
-import com.aa.gg.android.ads.SplashAd.SplashMode;
-import com.aa.gg.android.ads.SplashAdListener;
+import cn.domob.android.ads.RTSplashAd;
+import cn.domob.android.ads.RTSplashAdListener;
+import cn.domob.android.ads.SplashAd;
+import cn.domob.android.ads.SplashAd.SplashMode;
+import cn.domob.android.ads.SplashAdListener;
 
 public class SplashScreenActivity extends Activity {
+	
 	SplashAd splashAd;
 	RTSplashAd rtSplashAd;
 //	 缓存开屏广告:true   实时开屏广告:false
@@ -75,7 +75,6 @@ public class SplashScreenActivity extends Activity {
 					jump();
 //					如果应用没有单独的闪屏Activity，需要调用closeSplash方法去关闭开屏广告
 //					If you do not carry a separate advertising activity, you need to call closeRTSplash way to close the splash ad
-					
 //					splashAd.closeSplash();
 				}
 	

@@ -1,11 +1,6 @@
 package cn.domob.ads.sample;
 
 import java.util.LinkedList;
-
-import com.aa.gg.android.ads.AdManager.ErrorCode;
-import com.aa.gg.android.ads.FeedsAdListener;
-import com.aa.gg.android.ads.FeedsAdView;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +13,9 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import cn.domob.ads.sample.MyListView.OnRefreshListener;
+import cn.domob.android.ads.AdManager.ErrorCode;
+import cn.domob.android.ads.FeedsAdListener;
+import cn.domob.android.ads.FeedsAdView;
 
 public class FeedsAdActivity extends Activity {
 	private Handler mHandler = new Handler(Looper.getMainLooper());

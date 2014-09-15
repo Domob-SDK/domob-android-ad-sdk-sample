@@ -1,13 +1,13 @@
 package cn.domob.ads.sample;
-import com.aa.gg.android.ads.AdManager.ErrorCode;
-import com.aa.gg.android.ads.InterstitialAd;
-import com.aa.gg.android.ads.InterstitialAdListener;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import cn.domob.android.ads.AdManager.ErrorCode;
+import cn.domob.android.ads.InterstitialAd;
+import cn.domob.android.ads.InterstitialAdListener;
 
 public class InterstitialAdActivity extends Activity {
 	
