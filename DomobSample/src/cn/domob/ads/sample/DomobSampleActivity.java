@@ -31,28 +31,28 @@ public class DomobSampleActivity extends Activity {
 		bannerBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				startActivity(new Intent(DomobSampleActivity.this, BannerAd.class));
+				startActivity(new Intent(DomobSampleActivity.this, BannerAdActivity.class));
 			}
 		});
 		
 		rotatableFlexBannerBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				startActivity(new Intent(DomobSampleActivity.this, RotatableBannerAd.class));
+				startActivity(new Intent(DomobSampleActivity.this, RotatableBannerAdActivity.class));
 			}
 		});
 
 		interstitialBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				startActivity(new Intent(DomobSampleActivity.this, InterstitialAd.class));
+				startActivity(new Intent(DomobSampleActivity.this, InterstitialAdActivity.class));
 			}
 		});
 		
 		feedsBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				startActivity(new Intent(DomobSampleActivity.this, FeedsAd.class));
+				startActivity(new Intent(DomobSampleActivity.this, FeedsAdActivity.class));
 			}
 		});
 	}

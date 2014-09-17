@@ -24,13 +24,13 @@
 		android:label="@string/app_name">
 		<activity android:name=".DomobSampleActivity" android:label="@string/app_name">
 		</activity>
-		<activity android:name="cn.domob.android.ads.DomobActivity"
+		<activity android:name="cn.domob.android.ads.DmActivity"
 			android:theme="@android:style/Theme.Translucent"></activity>
-		<activity android:name="BannerAd"></activity>
-		<activity android:name="RotatableBannerAd"  android:configChanges="orientation"></activity>
-		<activity android:name="InterstitialAd"></activity>
-		<activity android:name="FeedsAd"></activity>
-		<activity android:name="SplashScreen">
+		<activity android:name="BannerAdActivity"></activity>
+		<activity android:name="RotatableBannerAdActivity"  android:configChanges="orientation|keyboard|keyboardHidden"></activity>
+		<activity android:name="InterstitialAdActivity"></activity>
+		<activity android:name="FeedsAdActivity"></activity>
+		<activity android:name="SplashScreenActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />

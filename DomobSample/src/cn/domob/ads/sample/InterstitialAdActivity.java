@@ -1,16 +1,17 @@
 package cn.domob.ads.sample;
 
-import cn.domob.android.ads.DomobAdManager.ErrorCode;
-import cn.domob.android.ads.DomobInterstitialAd;
-import cn.domob.android.ads.DomobInterstitialAdListener;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import cn.domob.android.ads.AdManager.ErrorCode;
+import cn.domob.android.ads.InterstitialAd;
+import cn.domob.android.ads.InterstitialAdListener;
 
-public class InterstitialAd extends Activity {
-	DomobInterstitialAd mInterstitialAd;
+public class InterstitialAdActivity extends Activity {
+	
+	InterstitialAd mInterstitialAd;
 	Button mInterstitialBtn;
 
 	@Override
@@ -18,12 +19,12 @@ public class InterstitialAd extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.interstital);
 
-		mInterstitialAd = new DomobInterstitialAd(this, DomobSampleActivity.PUBLISHER_ID,
+		mInterstitialAd = new InterstitialAd(this, DomobSampleActivity.PUBLISHER_ID,
 				DomobSampleActivity.InterstitialPPID);
 
 		mInterstitialBtn = (Button) findViewById(R.id.interstitial);
 		
-		mInterstitialAd.setInterstitialAdListener(new DomobInterstitialAdListener() {
+		mInterstitialAd.setInterstitialAdListener(new InterstitialAdListener() {
 			@Override
 			public void onInterstitialAdReady() {
 				Log.i("DomobSDKDemo", "onAdReady");
@@ -63,7 +64,7 @@ public class InterstitialAd extends Activity {
 			}
 
 			@Override
-			public void onInterstitialAdClicked(DomobInterstitialAd arg0) {
+			public void onInterstitialAdClicked(InterstitialAd arg0) {
 				Log.i("DomobSDKDemo", "onInterstitialAdClicked");
 			}
 		});
@@ -73,7 +74,7 @@ public class InterstitialAd extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				if (mInterstitialAd.isInterstitialAdReady()){
-					mInterstitialAd.showInterstitialAd(InterstitialAd.this);
+					mInterstitialAd.showInterstitialAd(InterstitialAdActivity.this);
 				} else {
 					Log.i("DomobSDKDemo", "Interstitial Ad is not ready");
 					mInterstitialAd.loadInterstitialAd();

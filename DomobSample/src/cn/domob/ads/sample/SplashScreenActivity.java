@@ -24,15 +24,16 @@ import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
-import cn.domob.android.ads.DomobRTSplashAd;
-import cn.domob.android.ads.DomobRTSplashAdListener;
-import cn.domob.android.ads.DomobSplashAd;
-import cn.domob.android.ads.DomobSplashAd.DomobSplashMode;
-import cn.domob.android.ads.DomobSplashAdListener;
+import cn.domob.android.ads.RTSplashAd;
+import cn.domob.android.ads.RTSplashAdListener;
+import cn.domob.android.ads.SplashAd;
+import cn.domob.android.ads.SplashAd.SplashMode;
+import cn.domob.android.ads.SplashAdListener;
 
-public class SplashScreen extends Activity {
-	DomobSplashAd splashAd;
-	DomobRTSplashAd rtSplashAd;
+public class SplashScreenActivity extends Activity {
+	
+	SplashAd splashAd;
+	RTSplashAd rtSplashAd;
 //	 缓存开屏广告:true   实时开屏广告:false
 //	Cache splash ad:true   Real-time splash ad:false
 	private boolean isSplash = false;
@@ -56,11 +57,11 @@ public class SplashScreen extends Activity {
 		if (isSplash) {
 //			 缓存开屏广告
 //			Cache splash ad
-			splashAd = new DomobSplashAd(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.SplashPPID,
-					DomobSplashMode.DomobSplashModeFullScreen);
+			splashAd = new SplashAd(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.SplashPPID,
+					SplashMode.SplashModeFullScreen);
 //		    setSplashTopMargin is available when you choose non-full-screen splash mode.
 //			splashAd.setSplashTopMargin(200);
-			splashAd.setSplashAdListener(new DomobSplashAdListener() {
+			splashAd.setSplashAdListener(new SplashAdListener() {
 				@Override
 				public void onSplashPresent() {
 					Log.i("DomobSDKDemo", "onSplashStart");
@@ -74,7 +75,6 @@ public class SplashScreen extends Activity {
 					jump();
 //					如果应用没有单独的闪屏Activity，需要调用closeSplash方法去关闭开屏广告
 //					If you do not carry a separate advertising activity, you need to call closeRTSplash way to close the splash ad
-					
 //					splashAd.closeSplash();
 				}
 	
@@ -88,9 +88,9 @@ public class SplashScreen extends Activity {
 				@Override
 				public void run() {
 					if (splashAd.isSplashAdReady()) {
-						splashAd.splash(SplashScreen.this, SplashScreen.this.findViewById(R.id.splash_holder));
+						splashAd.splash(SplashScreenActivity.this, SplashScreenActivity.this.findViewById(R.id.splash_holder));
 					} else {
-						Toast.makeText(SplashScreen.this, "Splash ad is NOT ready.", Toast.LENGTH_SHORT).show();
+						Toast.makeText(SplashScreenActivity.this, "Splash ad is NOT ready.", Toast.LENGTH_SHORT).show();
 						jump();
 					}
 				}
@@ -98,11 +98,11 @@ public class SplashScreen extends Activity {
 		} else {
 //			 实时开屏广告
 //			Real-time splash ad
-			rtSplashAd = new DomobRTSplashAd(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.SplashPPID,
-					DomobSplashMode.DomobSplashModeFullScreen);
+			rtSplashAd = new RTSplashAd(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.SplashPPID,
+					SplashMode.SplashModeFullScreen);
 //		    setRTSplashTopMargin is available when you choose non-full-screen splash mode.
 //			rtSplashAd.setRTSplashTopMargin(200);
-			rtSplashAd.setRTSplashAdListener(new DomobRTSplashAdListener() {
+			rtSplashAd.setRTSplashAdListener(new RTSplashAdListener() {
 				@Override
 				public void onRTSplashDismiss() {
 					Log.i("DomobSDKDemo", "onRTSplashClosed");
@@ -130,7 +130,7 @@ public class SplashScreen extends Activity {
 			new Handler().postDelayed(new Runnable() {
 				@Override
 				public void run() {
-					rtSplashAd.splash(SplashScreen.this, SplashScreen.this.findViewById(R.id.splash_holder));
+					rtSplashAd.splash(SplashScreenActivity.this, SplashScreenActivity.this.findViewById(R.id.splash_holder));
 				}
 			}, 1);
 		}
@@ -158,7 +158,7 @@ public class SplashScreen extends Activity {
 	}
 
 	private void jump() {
-		startActivity(new Intent(SplashScreen.this, DomobSampleActivity.class));
+		startActivity(new Intent(SplashScreenActivity.this, DomobSampleActivity.class));
 		finish();
 	}
 }
