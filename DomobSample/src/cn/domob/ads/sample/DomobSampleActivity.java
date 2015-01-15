@@ -15,7 +15,6 @@ public class DomobSampleActivity extends Activity {
 	public static final String InlinePPID = "16TLwebvAchksY6iO_8oSb-i";
 	public static final String InterstitialPPID = "16TLwebvAchksY6iOa7F4DXs";
 	public static final String SplashPPID = "16TLwebvAchksY6iOGe3xcik";
-	public static final String FeedsPPID = "16TLwebvAchksNUGSZjJXz_k";
 
 	/** Called when the activity is first created. */
 	@Override
@@ -26,7 +25,6 @@ public class DomobSampleActivity extends Activity {
 		Button bannerBtn = (Button) findViewById(R.id.banner);
 		Button rotatableFlexBannerBtn = (Button) findViewById(R.id.rotatableBannerAd);
 		Button interstitialBtn = (Button) findViewById(R.id.interstitial);
-		Button feedsBtn = (Button) findViewById(R.id.feeds);
 		
 		bannerBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -46,13 +44,6 @@ public class DomobSampleActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				startActivity(new Intent(DomobSampleActivity.this, InterstitialAdActivity.class));
-			}
-		});
-		
-		feedsBtn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				startActivity(new Intent(DomobSampleActivity.this, FeedsAdActivity.class));
 			}
 		});
 	}
